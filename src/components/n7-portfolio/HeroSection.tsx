@@ -8,7 +8,6 @@ import {
   Grid, 
   ArrowUpRight, 
   X,
-  ShieldCheck,
   Info
 } from 'lucide-react'
 
