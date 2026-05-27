@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #000D12;
+  --color-bg-soft: #061218;
+  --color-card: #1C2129;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-muted: #8A93A0;
+  --color-light-bg: #EAF1F4;
+  --color-light-card: #FFFFFF;
+  --color-primary: #00B4FD;
+  --color-primary-dark: #003ACE;
+  --color-cyan: #5BC2E7;
+
+  --font-sans: 'Archivo', system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#home, #solutions, #core-banking, #digital-banking, #partners, #insights, #case-studies, #about {
+  scroll-margin-top: 96px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.cta-gradient {
+  background: linear-gradient(103.43deg, #00B4FD -1.02%, #003ACE 83.53%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.cta-gradient:hover {
+  filter: brightness(1.1);
+}
+
+.hero-blob {
+  background: radial-gradient(circle at center, #00B4FD 0%, #003ACE 45%, transparent 75%);
+  filter: blur(100px);
+  opacity: 0.5;
+}
+
+.navbar-glow {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%);
+}
