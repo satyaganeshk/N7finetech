@@ -55,6 +55,7 @@ n7-/
         │   ├── FixedNavbar.tsx      # Glass nav with dropdowns + active-section tracking
         │   ├── Footer.tsx           # Three-column link footer with scroll-on-click
         │   ├── DemoBox.tsx          # "Request Demo" modal
+        │   ├── ScrollToTop.tsx      # Floating back-to-top button with scroll-progress ring
         │   └── Toast.tsx            # Bottom-right toast notification
         ├── n7-portfolio/
         │   ├── HeroSection.tsx
@@ -164,6 +165,17 @@ n7-/
 
 - **`Toast`** — bottom-right notification, auto-dismisses after 3.5s. Driven from `App.tsx` via `triggerToast(message)`.
 - **`DemoBox`** — controlled modal opened by any "Request Demo" CTA across the page.
+
+### Scroll-to-top button ([ScrollToTop.tsx](src/components/layout/ScrollToTop.tsx))
+
+> Reused from my personal portfolio site — same component, dropped in here as the page got long.
+
+- **Floating circular button** pinned bottom-right; appears only after the user scrolls past 500px.
+- **Animated scroll-progress ring** drawn around the button using Motion's `useScroll().scrollYProgress` mapped to an SVG circle's `pathLength`. The ring fills as you scroll down, so the user can see how far through the page they are at a glance.
+- **`isDark` prop** toggles between a dark pill (white arrow on `zinc-900`) and a light pill (dark arrow on white). Currently set to `true` for this dark-themed site.
+- **Smooth scroll** to top on click via `window.scrollTo({ top: 0, behavior: 'smooth' })`.
+- **Arrow nudge** — the `ArrowUp` icon lifts on hover (`group-hover:-translate-y-1`).
+- Fades in / out via `AnimatePresence` so it doesn't pop suddenly when crossing the 500px threshold.
 
 ### Theming & tokens
 

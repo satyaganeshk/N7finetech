@@ -145,15 +145,6 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
           animate="visible"
           className="space-y-9"
         >
-          {/* Tagline Badge */}
-          <motion.div 
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-[#00B4FD]"
-          >
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span className="font-semibold tracking-wide">Enterprise-grade Security Ecosystem</span>
-          </motion.div>
-
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

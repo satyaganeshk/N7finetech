@@ -99,7 +99,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
     >
       <div
         ref={navRef}
-        className="pointer-events-auto w-full max-w-[920px] rounded-2xl bg-gradient-to-b from-white/[0.12] to-white/[0.04] backdrop-blur-2xl backdrop-saturate-150 border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(255,255,255,0.04)] px-6 py-3 flex items-center justify-between relative before:absolute before:inset-0 before:rounded-2xl before:bg-[radial-gradient(120%_120%_at_50%_-20%,rgba(91,194,231,0.15)_0%,transparent_60%)] before:pointer-events-none"
+        className="pointer-events-auto w-full max-w-[920px] rounded-2xl bg-[#0F1318]/75 backdrop-blur-2xl backdrop-saturate-150 border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.15)] px-6 py-3 flex items-center justify-between relative before:absolute before:inset-0 before:rounded-2xl before:bg-[radial-gradient(120%_120%_at_50%_-20%,rgba(91,194,231,0.12)_0%,transparent_60%)] before:pointer-events-none"
       >
         <button
           onClick={() => scrollToId('home', 'Home')}
@@ -108,7 +108,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
           N7
         </button>
 
-        <nav className="hidden md:flex items-center gap-9 text-[12px] font-normal text-white/85">
+        <nav className="hidden md:flex items-center gap-9 text-[12px] font-normal text-slate-300">
           {navGroups.map((group) => {
             const isOpen = openDropdown === group.label
             const active = isGroupActive(group)
@@ -144,7 +144,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -8, scale: 0.98 }}
                       transition={{ duration: 0.18, ease: 'easeOut' }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[220px] rounded-xl bg-gradient-to-b from-white/[0.10] to-white/[0.03] backdrop-blur-2xl backdrop-saturate-150 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.15)] p-2"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[220px] rounded-xl bg-[#0F1318]/85 backdrop-blur-2xl backdrop-saturate-150 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] p-2"
                     >
                       {group.links.map((link) => {
                         const linkActive = activeId === link.id
@@ -209,7 +209,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="pointer-events-auto absolute top-full mt-3 left-4 right-4 md:hidden bg-gradient-to-b from-white/[0.12] to-white/[0.04] backdrop-blur-2xl backdrop-saturate-150 border border-white/15 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.15)] px-5 py-4 space-y-1 text-sm text-white/85"
+            className="pointer-events-auto absolute top-full mt-3 left-4 right-4 md:hidden bg-[#0F1318]/85 backdrop-blur-2xl backdrop-saturate-150 border border-white/15 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] px-5 py-4 space-y-1 text-sm text-slate-300"
           >
             {navGroups.map((group) => (
               <div key={group.label} className="py-1">

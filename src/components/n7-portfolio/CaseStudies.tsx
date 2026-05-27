@@ -133,8 +133,9 @@ export default function CaseStudies({
           })}
         </div>
 
-        <div className="flex items-center justify-between max-w-[1040px] mx-auto pt-2">
-          <div className="flex items-center gap-5">
+        <div className="grid grid-cols-3 items-center max-w-[1040px] mx-auto pt-2">
+          <div />
+          <div className="flex items-center justify-center gap-5">
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}

@@ -14,23 +14,29 @@ const backgroundSrc: Record<'CB7' | 'N7', string> = {
 
 export function CtaBanner({ onRequestDemo, onContact, background }: BannerSectionProps) {
   return (
-    <section className="relative bg-[#0B0E12] overflow-hidden rounded-3xl">
+    <section
+      className="relative overflow-hidden rounded-3xl mx-4 md:mx-8 lg:mx-12 my-6 border border-white/[0.04]"
+      style={{
+        background:
+          'radial-gradient(120% 90% at 75% 50%, rgba(0,82,255,0.06) 0%, transparent 55%), linear-gradient(180deg, #0E1218 0%, #0A0D13 100%)'
+      }}
+    >
       {background && (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 0.5, scale: 1 }}
+          animate={{ opacity: 0.65, scale: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          className="absolute inset-0 flex items-center justify-end pr-4 md:pr-12 lg:pr-20 pointer-events-none select-none"
         >
           <img
             src={backgroundSrc[background]}
             alt=""
-            className="w-[700px] max-w-full h-auto object-contain"
+            className="w-[760px] max-w-[60%] h-auto object-contain"
           />
         </motion.div>
       )}
 
-      <div className="relative max-w-[1200px] mx-auto px-8 py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div className="relative max-w-[1280px] mx-auto px-10 md:px-14 py-28 md:py-36 grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -38,11 +44,11 @@ export function CtaBanner({ onRequestDemo, onContact, background }: BannerSectio
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-4"
         >
-          <h2 className="text-2xl md:text-[32px] font-light text-white leading-[1.2] tracking-tight">
+          <h2 className="text-3xl md:text-[44px] font-light text-white leading-[1.15] tracking-tight">
             Take the full advantage of<br />
             going paper-less now.
           </h2>
-          <p className="text-white/50 text-sm leading-relaxed font-light max-w-md">
+          <p className="text-white/55 text-[15px] leading-relaxed font-light max-w-md pt-1">
             N7 helps your financial institution improve the client experience, automate and optimize procedures, simplify back-office operations.
           </p>
         </motion.div>

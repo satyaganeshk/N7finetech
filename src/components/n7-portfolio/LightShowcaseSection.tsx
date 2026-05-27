@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ArrowRight, Check, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CtaLightBanner } from './BannerSection' 
+import { CtaLightBanner } from '../layout/BannerSection' 
 
 type LightShowcaseSectionProps = {
   onFeatureAction?: (message: string) => void

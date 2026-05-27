@@ -3,10 +3,11 @@ import FixedNavbar from './components/layout/FixedNavbar'
 import Footer from './components/layout/Footer'
 import DemoBox from './components/layout/DemoBox'
 import Toast from './components/layout/Toast'
+import ScrollToTop from './components/layout/ScrollToTop'
 import HeroSection from './components/n7-portfolio/HeroSection'
 import SolutionsSection from './components/n7-portfolio/SolutionsSection'
 import { SystemSection } from './components/n7-portfolio/SystemSection'
-import { CtaBanner } from './components/n7-portfolio/BannerSection'
+import { CtaBanner } from './components/layout/BannerSection'
 import PartnerBar from './components/n7-portfolio/PartnerBar'
 import { LightShowcaseSection } from './components/n7-portfolio/LightShowcaseSection'
 import CoreInsights from './components/n7-portfolio/CoreInsights'
@@ -83,6 +84,7 @@ function App() {
       </div>
       {toastMessage && <Toast message={toastMessage} />}
       <DemoBox open={isDemoModalOpen} onClose={handleDemoClose} onToast={triggerToast} />
+      <ScrollToTop isDark={true} />
     </div>
   )
 }
