@@ -44,43 +44,45 @@ function App() {
   return (
     <div className="min-h-screen bg-[#0E1116] text-white selection:bg-[#1E5CFF] selection:text-white overflow-x-hidden">
       <FixedNavbar onRequestDemo={handleDemoOpen} onToast={triggerToast} />
-      <div id="home">
-        <HeroSection onRequestDemo={handleDemoOpen} onStartNow={handleStartNow} onToast={triggerToast} />
-      </div>
-      <div id="solutions">
-        <SolutionsSection
-          solutions={solutions}
-          onLearnMore={handleLearnMore}
-          onRequestDemo={handleDemoOpen}
-        />
-      </div>
-      <div id="core-banking">
-        <SystemSection onSimulate={handleSimulate} onLearnMore={() => handleLearnMore('Cloud Core Banking')} onRequestDemo={handleDemoOpen} />
-      </div>
-      <CtaBanner onRequestDemo={handleDemoOpen} onContact={handleStartNow} background="CB7" />
-      <div id="partners">
-        <PartnerBar />
-      </div>
-      <div id="digital-banking">
-        <LightShowcaseSection
-          onFeatureAction={handleFeatureAction}
-          onLearnMore={() => handleLearnMore('Digital banking out-of-the-box')}
-          onRequestDemo={handleDemoOpen}
-          onContact={handleStartNow}
-        />
-      </div>
-      <CoreInsights onSeeAll={handleSeeAll} onReadArticle={handleReadArticle}  />
-      <div id="case-studies">
-        <CaseStudies
-          caseStudies={caseStudies}
-          activeIndex={activeCaseStudy}
-          onPrev={goToPreviousCaseStudy}
-          onNext={goToNextCaseStudy}
-          onJumpTo={setActiveCaseStudy}
-          onReadMore={handleReadCase}
-        />
-      </div>
-      <CtaBanner onRequestDemo={handleDemoOpen} onContact={handleStartNow} />
+      <main>
+        <section id="home" aria-label="Hero">
+          <HeroSection onRequestDemo={handleDemoOpen} onStartNow={handleStartNow} onToast={triggerToast} />
+        </section>
+        <section id="solutions" aria-label="Solutions">
+          <SolutionsSection
+            solutions={solutions}
+            onLearnMore={handleLearnMore}
+            onRequestDemo={handleDemoOpen}
+          />
+        </section>
+        <section id="core-banking" aria-label="Core banking">
+          <SystemSection onSimulate={handleSimulate} onLearnMore={() => handleLearnMore('Cloud Core Banking')} onRequestDemo={handleDemoOpen} />
+        </section>
+        <CtaBanner onRequestDemo={handleDemoOpen} onContact={handleStartNow} background="CB7" />
+        <section id="partners" aria-label="Trusted partners">
+          <PartnerBar />
+        </section>
+        <section id="digital-banking" aria-label="Digital banking">
+          <LightShowcaseSection
+            onFeatureAction={handleFeatureAction}
+            onLearnMore={() => handleLearnMore('Digital banking out-of-the-box')}
+            onRequestDemo={handleDemoOpen}
+            onContact={handleStartNow}
+          />
+        </section>
+        <CoreInsights onSeeAll={handleSeeAll} onReadArticle={handleReadArticle} />
+        <section id="case-studies" aria-label="Case studies">
+          <CaseStudies
+            caseStudies={caseStudies}
+            activeIndex={activeCaseStudy}
+            onPrev={goToPreviousCaseStudy}
+            onNext={goToNextCaseStudy}
+            onJumpTo={setActiveCaseStudy}
+            onReadMore={handleReadCase}
+          />
+        </section>
+        <CtaBanner onRequestDemo={handleDemoOpen} onContact={handleStartNow} />
+      </main>
       <div id="about">
         <Footer onToast={triggerToast} />
       </div>

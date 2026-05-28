@@ -41,12 +41,18 @@ export default function DemoBox({ open, onClose, onToast }: DemoBoxProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#0E1116]/85 backdrop-blur-md flex items-center justify-center p-6">
+    <div
+      className="fixed inset-0 z-50 bg-[#0E1116]/85 backdrop-blur-md flex items-center justify-center p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="demo-dialog-title"
+    >
       <div className="bg-[#161B22] border border-white/10 rounded-2xl p-9 max-w-md w-full relative shadow-2xl">
 
         {/* Close */}
         <button
           onClick={onClose}
+          aria-label="Close demo request dialog"
           className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg text-white/35 hover:text-white/80 hover:bg-white/6 transition-all"
         >
           <X className="w-4 h-4" />
@@ -57,7 +63,7 @@ export default function DemoBox({ open, onClose, onToast }: DemoBoxProps) {
           <p className="text-[10px] uppercase tracking-[0.22em] text-cyan font-medium mb-2">
             Request Demo
           </p>
-          <h3 className="text-2xl font-light text-white tracking-tight mb-1.5">
+          <h3 id="demo-dialog-title" className="text-2xl font-light text-white tracking-tight mb-1.5">
             Talk to our team
           </h3>
           <p className="text-white/45 text-[13px] font-light leading-relaxed">

@@ -279,7 +279,7 @@ export default function HeroSection({ onRequestDemo, onStartNow, onToast }: Hero
                       <p className="text-[9px] text-slate-400 font-medium">Good Morning</p>
                     </div>
                   </div>
-                  <button onClick={() => setActiveModal('more')} className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors">
+                  <button onClick={() => setActiveModal('more')} aria-label="Notifications" className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors">
                     <Bell className="w-3.5 h-3.5 text-slate-600" />
                   </button>
                 </div>
@@ -393,8 +393,9 @@ export default function HeroSection({ onRequestDemo, onStartNow, onToast }: Hero
               exit={{ scale: 0.95, y: 15 }}
               className="bg-[#041217] border border-white/10 rounded-3xl p-6 max-w-md w-full text-white shadow-2xl relative"
             >
-              <button 
+              <button
                 onClick={() => setActiveModal(null)}
+                aria-label="Close dialog"
                 className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-colors"
               >
                 <X className="w-4 h-4" />

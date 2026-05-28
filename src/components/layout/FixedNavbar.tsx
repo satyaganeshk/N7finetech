@@ -103,6 +103,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
       >
         <button
           onClick={() => scrollToId('home', 'Home')}
+          aria-label="N7 home"
           className="text-xl font-semibold tracking-tight text-white select-none"
         >
           N7
@@ -197,6 +198,8 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
 
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileMenuOpen}
           className="md:hidden text-white p-1"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
