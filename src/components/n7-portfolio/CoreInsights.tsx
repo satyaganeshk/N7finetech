@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { ArrowRight, X } from 'lucide-react'
 import { motion, AnimatePresence, type Variants } from 'motion/react'
 
@@ -97,7 +97,7 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         >
-          <img
+          <img loading="lazy" decoding="async"
             src={backgroundSrc[background]}
             alt=""
             className="w-[700px] max-w-full h-auto object-contain"
@@ -138,8 +138,8 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
             className="group grid md:grid-cols-2 gap-0 bg-[#0B131A] border border-white/5 rounded-2xl overflow-hidden transition-colors"
           >
             <div className="bg-[#0A1A28] flex items-center justify-center p-8 min-h-65 overflow-hidden">
-              <img
-                src="/Transistion.png"
+              <img loading="lazy" decoding="async"
+                src="/Transition.png"
                 alt=""
                 className="w-full max-w-70 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
               />
@@ -221,8 +221,8 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
                     className="text-left bg-[#0A1A28] border border-white/5 rounded-xl p-5 flex gap-4 items-start transition-colors group"
                   >
                     <div className="w-16 h-16 rounded-lg bg-[#0B131A] flex items-center justify-center shrink-0">
-                      <img
-                        src="/Transistion.png"
+                      <img loading="lazy" decoding="async"
+                        src="/Transition.png"
                         alt=""
                         className="w-12 h-12 object-contain"
                       />

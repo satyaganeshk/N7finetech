@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react'
+﻿import { ArrowRight } from 'lucide-react'
 import { motion } from 'motion/react'
 
 type BannerSectionProps = {
@@ -28,7 +28,7 @@ export function CtaBanner({ onRequestDemo, onContact, background }: BannerSectio
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className="absolute inset-0 flex items-center justify-end pr-4 md:pr-12 lg:pr-20 pointer-events-none select-none"
         >
-          <img
+          <img loading="lazy" decoding="async"
             src={backgroundSrc[background]}
             alt=""
             className="w-[760px] max-w-[60%] h-auto object-contain"

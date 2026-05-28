@@ -1,4 +1,4 @@
-import type { SolutionItem } from '../constants/sectionData'
+﻿import type { SolutionItem } from '../constants/sectionData'
 import { ArrowRight } from 'lucide-react'
 import { motion, type Variants } from 'motion/react'
 
@@ -63,7 +63,7 @@ export default function SolutionsSection({ solutions, onLearnMore, onRequestDemo
                   {item.tag}
                 </span>
               )}
-              <img
+              <img loading="lazy" decoding="async"
                 src={encodeURI(item.icon)}
                 alt=""
                 className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-110"

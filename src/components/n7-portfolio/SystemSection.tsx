@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 
@@ -51,7 +51,7 @@ function LaptopMockup({ src, alt, glowingSide = 'right', floatDelay = 0 }: { src
 
       {/* Laptop Screen Bezel */}
       <div className="relative rounded-t-xl bg-[#090D14] p-3 md:p-4 border-[2px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover:shadow-[0_30px_70px_rgba(0,82,255,0.35)] transition-shadow duration-500 aspect-[16/10] overflow-hidden flex items-center justify-center">
-        <img
+        <img loading="lazy" decoding="async"
           src={encodeURI(src)}
           alt={alt}
           className="w-full h-full object-cover rounded-md"
@@ -170,7 +170,7 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute top-[5%] left-[-8%] w-[115%] h-[85%] pointer-events-none select-none z-0 flex items-start justify-center mix-blend-screen"
       >
-        <img 
+        <img loading="lazy" decoding="async" 
           src="/CB7.png" 
           alt="" 
           className="w-[100%] max-w-none h-auto object-contain"
@@ -192,7 +192,7 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
 
       {/* Vector background curves layer (using given /Vector.png only as background curves) */}
       <div className="absolute inset-y-0 right-[-10%] w-[55%] h-full opacity-[0.04] pointer-events-none select-none z-0 mix-blend-screen">
-        <img 
+        <img loading="lazy" decoding="async" 
           src="/Vector.png" 
           alt="" 
           className="w-full h-full object-contain"
@@ -244,7 +244,7 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
           {/* Right Laptop Screen Column (glowing baseline on the right side) */}
           <div className="lg:col-span-6 flex justify-center">
             <LaptopMockup 
-              src="/Dasboards/Frame 90.png" 
+              src="/Dashboards/Frame 90.png"
               alt="Core banking Dashboard screen" 
               glowingSide="right"
             />
@@ -258,7 +258,7 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
           {/* Left Column: Laptop Mockup (glowing baseline on the left side) */}
           <div className="lg:col-span-6 lg:order-1 flex justify-center">
             <LaptopMockup
-              src="/Dasboards/Frame 98.png"
+              src="/Dashboards/Frame 98.png"
               alt="KYC Dashboard screen"
               glowingSide="left"
               floatDelay={1.5}

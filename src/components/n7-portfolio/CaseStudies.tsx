@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { ArrowLeft, ArrowRight, Zap, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 
@@ -30,8 +30,8 @@ function CaseCard({
   return (
     <div className="group bg-[#0B131A] border border-white/5 rounded-2xl overflow-hidden h-full grid md:grid-cols-2 gap-0 hover:border-cyan/30 transition-colors duration-300">
       <div className="bg-[#0A1A28] flex items-center justify-center p-8 min-h-55 sm:min-h-75 overflow-hidden">
-        <img
-          src="/Transistion.png"
+        <img loading="lazy" decoding="async"
+          src="/Transition.png"
           alt=""
           className="w-full max-w-[320px] h-auto object-contain transition-transform duration-500 group-hover:scale-105"
         />
@@ -140,6 +140,7 @@ export default function CaseStudies({
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
               onClick={onPrev}
+              aria-label="Previous case study"
               className="w-11 h-11 rounded-full border border-cyan/60 hover:border-cyan text-cyan flex items-center justify-center transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -160,6 +161,7 @@ export default function CaseStudies({
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
               onClick={onNext}
+              aria-label="Next case study"
               className="w-11 h-11 rounded-full border border-cyan/60 hover:border-cyan text-cyan flex items-center justify-center transition-colors"
             >
               <ArrowRight className="w-4 h-4" />
@@ -224,8 +226,8 @@ export default function CaseStudies({
                     className="text-left bg-[#0A1A28] border border-white/5 rounded-xl p-5 flex gap-4 items-start transition-colors group"
                   >
                     <div className="w-16 h-16 rounded-lg bg-[#0B131A] flex items-center justify-center shrink-0">
-                      <img
-                        src="/Transistion.png"
+                      <img loading="lazy" decoding="async"
+                        src="/Transition.png"
                         alt=""
                         className="w-12 h-12 object-contain"
                       />

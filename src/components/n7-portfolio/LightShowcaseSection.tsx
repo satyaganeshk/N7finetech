@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { ArrowRight, Check, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { CtaLightBanner } from '../layout/BannerSection' 
@@ -68,7 +68,7 @@ function PhoneMockup({ src, alt, index }: { src: string; alt: string; index: num
         }}
         className="relative"
       >
-        <img
+        <img loading="lazy" decoding="async"
           src={encodeURI(src)}
           alt={alt}
           className="w-full h-auto drop-shadow-[0_25px_50px_rgba(15,42,86,0.15)] transition-transform duration-500 hover:scale-[1.015]"
@@ -208,7 +208,7 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
       
       {/* Actual outlined watermark "/N7.png" image asset behind the top hero section */}
       <div className="absolute top-[-3%] left-[-10%] w-[120%] h-full pointer-events-none select-none opacity-[0.16] z-0 flex items-start justify-center">
-        <img 
+        <img loading="lazy" decoding="async" 
           src="/N7.png" 
           alt="" 
           className="w-[110%] max-w-none h-auto object-contain"
@@ -218,7 +218,7 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
 
       {/* Primary Background curves using the "/Vector.png" file - with adjusted opacity so they are clearly visible */}
       <div className="absolute top-[2%] left-[-10%] w-[85%] md:w-[60%] h-auto opacity-[0.22] pointer-events-none select-none z-0">
-        <img 
+        <img loading="lazy" decoding="async" 
           src="/Vector.png" 
           alt="" 
           className="w-full h-auto object-contain transform -rotate-12"
@@ -227,7 +227,7 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
       </div>
 
       <div className="absolute top-[35%] right-[-15%] w-[80%] md:w-[55%] h-auto opacity-[0.18] pointer-events-none select-none z-0">
-        <img 
+        <img loading="lazy" decoding="async" 
           src="/Vector.png" 
           alt="" 
           className="w-full h-auto object-contain transform scale-x-[-1] rotate-45"
@@ -236,7 +236,7 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
       </div>
 
       <div className="absolute bottom-[12%] left-[-12%] w-[85%] md:w-[60%] h-auto opacity-[0.22] pointer-events-none select-none z-0">
-        <img 
+        <img loading="lazy" decoding="async" 
           src="/Vector.png" 
           alt="" 
           className="w-full h-auto object-contain transform rotate-90"
