@@ -1,6 +1,48 @@
 # N7 — The new foundation of modern banking
 
-A single-page marketing site for **N7 / CB7**, a modern banking platform. Built with React 19, Vite 8, TypeScript, Tailwind v4, and Motion (Framer Motion v12). The page tells the product story across nine scroll-snapped sections, each with its own hand-tuned entrance, hover and micro-interaction animations, plus a fixed glassy navbar that tracks the active section in real time.
+> Submission for the **Software Development Engineer (SDE) – Full Stack** assignment.
+> A pixel-faithful, fully responsive React implementation of the N7 fintech [Figma design](https://www.figma.com/design/ktuyhOppLLgLFCZwzQCOBk/N7?node-id=24-3468).
+
+**Live:** https://n7finetech.vercel.app
+**Repo:** https://github.com/satyaganeshk/N7finetech
+
+---
+
+## Highlights — what's implemented beyond the static design
+
+The Figma is a marketing page; the goal was to make it feel like a real product, not a clone. Everything below is wired up and interactive:
+
+- **Live hero simulation** — working balance card with Transfer / Deposit / More modals; the balance updates and a synthetic ledger animates after each action.
+- **Active-section navbar** — `IntersectionObserver` tracks the viewport and animates the underline via `layoutId` so it morphs between menu items as you scroll.
+- **3D laptop mockup** — perspective-transformed with a hover tilt + idle float; gracefully degrades to a CSS-drawn dashboard if the PNG fails.
+- **Peek-style case-study carousel** with wraparound, blurred neighbours, keyboardable controls and a "View All" modal.
+- **Scroll-progress ring** on the back-to-top FAB.
+- **Image fallbacks everywhere** — every PNG has a fully styled CSS fallback so the page never renders broken.
+
+## Performance
+
+- **React 19 + React Compiler** (`babel-plugin-react-compiler` in `vite.config.ts`) — components are auto-memoized at build time, no manual `useMemo`/`useCallback` noise.
+- Hero image preloaded via `<link rel="preload" as="image" fetchpriority="high">`.
+- Every below-the-fold `<img>` uses `loading="lazy"` and `decoding="async"`.
+- `vercel.json` sets `Cache-Control: public, max-age=31536000, immutable` for `/assets/*` and all images.
+- Tailwind v4's JIT pipeline emits only the classes actually used — production CSS is tiny.
+
+## Accessibility
+
+- Proper landmark structure (`<header>`, `<main>`, `<footer>`, `<nav>`, `<section aria-label>`).
+- Every icon-only button has an explicit `aria-label`.
+- The demo dialog has `role="dialog"`, `aria-modal`, `aria-labelledby`.
+- Visible `:focus-visible` ring (cyan, 2 px, 2 px offset) on every interactive element.
+- `prefers-reduced-motion` query disables animations and smooth-scroll for users who opt out.
+- Color tokens defined as CSS variables (`--color-cyan`, `--color-bg`, `--color-primary`) — already wired for a dark/light switch.
+
+## Security headers (via `vercel.json`)
+
+`X-Content-Type-Options: nosniff` · `Referrer-Policy: strict-origin-when-cross-origin` · `Permissions-Policy: camera=(), microphone=(), geolocation=()` · `X-Frame-Options: SAMEORIGIN`.
+
+## CI
+
+`.github/workflows/ci.yml` runs `npm ci → npm run lint → npm run build` on every push and PR (Node 22).
 
 ---
 
@@ -40,11 +82,11 @@ n7-/
 ├── public/                          # Static assets, served at site root
 │   ├── BannerThings/                # Marquee assets (N7.png, CB7.png, bannerStar.png)
 │   ├── companiesVectors/            # Trusted-by logos
-│   ├── Dasboards/                   # Laptop dashboard screenshots (Frame 90, Frame 98)
+│   ├── Dashboards/                  # Laptop dashboard screenshots (Frame 90, Frame 98)
 │   ├── Iphones/                     # iPhone mockup screens for the LightShowcase section
 │   ├── SolutionsVectors/            # Per-solution icons
 │   ├── CB7.png, CB7full.png, N7.png # Brand watermarks
-│   ├── Transistion.png              # Featured-article / case-study artwork
+│   ├── Transition.png               # Featured-article / case-study artwork
 │   ├── hero.png, heroside1.png, heroside2.png
 │   └── favicon.svg
 └── src/
