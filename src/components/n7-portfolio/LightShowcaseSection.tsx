@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { ArrowRight, Check, ChevronRight } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { CtaLightBanner } from '../layout/BannerSection' 
 
 type LightShowcaseSectionProps = {
   onFeatureAction?: (message: string) => void
   onLearnMore?: () => void
+  onRequestDemo?: () => void
+  onContact?: () => void
 }
 
 // Complete mock data matching the exact copy in Frame 39.jpg
@@ -179,7 +181,7 @@ function PhoneMockup({ src, alt, index }: { src: string; alt: string; index: num
   )
 }
 
-export function LightShowcaseSection({ onFeatureAction, onLearnMore }: LightShowcaseSectionProps) {
+export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDemo, onContact }: LightShowcaseSectionProps) {
   const [toastMessage, setToastMessage] = useState<string | null>(null)
 
   const handleAction = (message: string) => {
@@ -264,7 +266,7 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore }: LightShow
             <div className="pt-2 flex flex-col sm:flex-row lg:flex-col gap-4 items-start">
               <motion.button
                 whileTap={{ scale: 0.97 }}
-                onClick={() => handleAction('Request Demo')}
+                onClick={() => onRequestDemo?.()}
                 className="px-7 py-3 rounded-lg bg-gradient-to-r from-[#0052FF] to-[#0076FF] text-white text-xs font-semibold uppercase tracking-wider shadow-[0_10px_25px_rgba(0,82,255,0.2)] hover:shadow-[0_12px_30px_rgba(0,82,255,0.3)] hover:translate-y-[-1px] transition-all duration-200"
               >
                 Request Demo
@@ -391,7 +393,7 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore }: LightShow
 
         </div>
 
-        <CtaLightBanner onRequestDemo={() => handleAction('Request Demo from Banner')} onContact={() => handleAction('Contact Us from Banner')} background="N7" />
+        <CtaLightBanner onRequestDemo={() => onRequestDemo?.()} onContact={() => onContact?.()} background="N7" />
 
       </div>
 

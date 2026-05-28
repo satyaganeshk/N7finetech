@@ -55,7 +55,7 @@ function ArticleBody({ article, onReadArticle }: { article: Article; onReadArtic
   return (
     <div className="flex flex-col h-full gap-6">
       <div className="space-y-4">
-        <p className="text-[10px] uppercase tracking-[0.22em] text-[#5BC2E7] font-medium">{article.tag}</p>
+        <p className="text-[10px] uppercase tracking-[0.22em] text-cyan font-medium">{article.tag}</p>
         <h3 className="text-xl md:text-[22px] font-light text-white leading-[1.25]">{article.title}</h3>
         <div className="flex items-center gap-4 text-[12px] text-white/45 font-light">
           <span>{article.author}</span>
@@ -65,7 +65,7 @@ function ArticleBody({ article, onReadArticle }: { article: Article; onReadArtic
       <div className="mt-auto pt-4">
         <button
           onClick={() => onReadArticle(article.title)}
-          className="border border-white/15 hover:border-[#5BC2E7] text-white/70 hover:text-white text-[10px] uppercase tracking-[0.22em] font-medium px-6 py-2.5 rounded transition-colors w-full md:w-auto"
+          className="border border-white/15 hover:border-cyan text-white/70 hover:text-white text-[10px] uppercase tracking-[0.22em] font-medium px-6 py-2.5 rounded transition-colors w-full md:w-auto"
         >
           Read More
         </button>
@@ -89,7 +89,7 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
   }
 
   return (
-    <section id="insights" className="relative bg-[#000D12] py-24 overflow-hidden">
+    <section id="insights" className="relative bg-bg py-16 sm:py-20 lg:py-24 overflow-hidden">
       {background && (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -104,7 +104,7 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
           />
         </motion.div>
       )}
-      <div className="relative max-w-[1280px] mx-auto px-8 grid md:grid-cols-12 gap-x-12 gap-y-10">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-12 gap-x-12 gap-y-10">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -135,13 +135,13 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
           <motion.article
             variants={cardVariants}
             whileHover={{ y: -4, borderColor: 'rgba(255,255,255,0.12)' }}
-            className="grid md:grid-cols-2 gap-0 bg-[#0B131A] border border-white/5 rounded-2xl overflow-hidden transition-colors"
+            className="group grid md:grid-cols-2 gap-0 bg-[#0B131A] border border-white/5 rounded-2xl overflow-hidden transition-colors"
           >
-            <div className="bg-[#0A1A28] flex items-center justify-center p-8 min-h-[260px]">
+            <div className="bg-[#0A1A28] flex items-center justify-center p-8 min-h-65 overflow-hidden">
               <img
                 src="/Transistion.png"
                 alt=""
-                className="w-full max-w-[280px] h-auto object-contain"
+                className="w-full max-w-70 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             <div className="p-8">
@@ -154,8 +154,8 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
               <motion.article
                 key={idx}
                 variants={cardVariants}
-                whileHover={{ y: -4, borderColor: 'rgba(255,255,255,0.12)' }}
-                className="bg-[#0B131A] border border-white/5 rounded-2xl p-8 transition-colors"
+                whileHover={{ y: -4, borderColor: 'rgba(91,194,231,0.35)' }}
+                className="bg-[#0B131A] border border-white/5 rounded-2xl p-6 sm:p-8 transition-colors hover:shadow-[0_12px_30px_rgba(91,194,231,0.08)]"
               >
                 <ArticleBody article={article} onReadArticle={onReadArticle} />
               </motion.article>
@@ -167,9 +167,9 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
               onClick={handleSeeAll}
               className="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] font-medium transition-colors"
             >
-              <span className="text-[#5BC2E7] underline underline-offset-[6px] decoration-[#5BC2E7] group-hover:text-white group-hover:decoration-white transition-colors">Read</span>
+              <span className="text-cyan underline underline-offset-[6px] decoration-cyan group-hover:text-white group-hover:decoration-white transition-colors">Read</span>
               <span className="text-white/70 group-hover:text-white transition-colors">All Insights</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#5BC2E7] group-hover:text-white group-hover:translate-x-1 transition-all" />
+              <ArrowRight className="w-3.5 h-3.5 text-cyan group-hover:text-white group-hover:translate-x-1 transition-all" />
             </button>
           </div>
         </motion.div>
@@ -195,7 +195,7 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
             >
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#5BC2E7] font-medium">All Insights</p>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-cyan font-medium">All Insights</p>
                   <h3 className="mt-2 text-xl md:text-[26px] font-light text-white tracking-tight">
                     {articles.length} stories on what's happening in fintech
                   </h3>
@@ -228,7 +228,7 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
                       />
                     </div>
                     <div className="space-y-2 min-w-0 flex-1">
-                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#5BC2E7] font-medium">
+                      <p className="text-[9px] uppercase tracking-[0.22em] text-cyan font-medium">
                         {article.tag}
                       </p>
                       <h4 className="text-[15px] font-light text-white leading-snug">
@@ -239,7 +239,7 @@ export default function CoreInsights({ onSeeAll, onReadArticle, background }: Co
                         <span>{article.date}</span>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-[#5BC2E7] group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+                    <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-cyan group-hover:translate-x-1 transition-all shrink-0 mt-1" />
                   </motion.button>
                 ))}
               </div>

@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 
 type SystemSectionProps = {
   onSimulate?: () => void
   onLearnMore?: () => void
+  onRequestDemo?: () => void
 }
 
 // Exactly split features to mirror Frame 80.png's two-column layout
@@ -138,7 +139,7 @@ function LaptopMockup({ src, alt, glowingSide = 'right', floatDelay = 0 }: { src
   )
 }
 
-export function SystemSection({ onSimulate, onLearnMore }: SystemSectionProps) {
+export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: SystemSectionProps) {
   const [toastMessage, setToastMessage] = useState<string | null>(null)
 
   const handleAction = (message: string) => {
@@ -222,7 +223,7 @@ export function SystemSection({ onSimulate, onLearnMore }: SystemSectionProps) {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => handleAction('Request Demo')}
+                onClick={() => onRequestDemo?.()}
                 className="px-8 py-3.5 rounded-lg bg-gradient-to-r from-[#0052FF] to-[#0076FF] text-white text-xs font-semibold uppercase tracking-[0.18em] shadow-[0_12px_25px_rgba(0,82,255,0.25)] hover:shadow-[0_15px_30px_rgba(0,82,255,0.35)] transition-all duration-200"
               >
                 Request Demo
@@ -230,7 +231,7 @@ export function SystemSection({ onSimulate, onLearnMore }: SystemSectionProps) {
               
               <button
                 onClick={handleLearnMore}
-                className="group flex items-center gap-1.5 text-[11px] text-[#5BC2E7] hover:text-white font-semibold uppercase tracking-[0.2em] transition-colors py-2"
+                className="group flex items-center gap-1.5 text-[11px] text-cyan hover:text-white font-semibold uppercase tracking-[0.2em] transition-colors py-2"
               >
                 <span className="relative after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
                   Learn More
@@ -285,7 +286,7 @@ export function SystemSection({ onSimulate, onLearnMore }: SystemSectionProps) {
                     key={feature}
                     whileHover={{ x: 2 }}
                     onClick={() => handleAction(feature)}
-                    className="group flex items-start gap-3.5 text-[13px] text-slate-300 font-light cursor-pointer hover:text-[#5BC2E7] transition-all"
+                    className="group flex items-start gap-3.5 text-[13px] text-slate-300 font-light cursor-pointer hover:text-cyan transition-all"
                   >
                     <span className="w-5 h-5 rounded-full bg-[#0052FF] flex items-center justify-center shrink-0 shadow-md shadow-blue-900/30 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_14px_rgba(0,82,255,0.6)]">
                       <Check className="w-3 h-3 text-white stroke-[3.5] transition-transform duration-300 group-hover:scale-110" />
@@ -302,7 +303,7 @@ export function SystemSection({ onSimulate, onLearnMore }: SystemSectionProps) {
                     key={feature}
                     whileHover={{ x: 2 }}
                     onClick={() => handleAction(feature)}
-                    className="group flex items-start gap-3.5 text-[13px] text-slate-300 font-light cursor-pointer hover:text-[#5BC2E7] transition-all"
+                    className="group flex items-start gap-3.5 text-[13px] text-slate-300 font-light cursor-pointer hover:text-cyan transition-all"
                   >
                     <span className="w-5 h-5 rounded-full bg-[#0052FF] flex items-center justify-center shrink-0 shadow-md shadow-blue-900/30 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_14px_rgba(0,82,255,0.6)]">
                       <Check className="w-3 h-3 text-white stroke-[3.5] transition-transform duration-300 group-hover:scale-110" />

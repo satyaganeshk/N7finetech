@@ -85,13 +85,13 @@ export default function Footer({ onToast }: FooterProps) {
   return (
     <footer className="bg-[#020B12] overflow-hidden">
 
-      <div className=" mx-auto px-16 py-20">
+      <div className="mx-auto px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-20">
 
         {/* TOP */}
-        <div className="grid grid-cols-12 gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
 
           {/* LEFT BIG N7 */}
-          <div className="col-span-4">
+          <div className="lg:col-span-4">
 
             <div className="relative inline-block">
 
@@ -105,7 +105,9 @@ export default function Footer({ onToast }: FooterProps) {
                 className="
                   relative
                   z-10
-                  text-[360px]
+                  text-[140px]
+                  sm:text-[220px]
+                  lg:text-[360px]
                   leading-[0.8]
                   font-[600]
                   tracking-[-0.08em]
@@ -123,19 +125,19 @@ export default function Footer({ onToast }: FooterProps) {
           </div>
 
           {/* RIGHT CONTENT */}
-          <div className="col-span-8 flex flex-col justify-between">
+          <div className="lg:col-span-8 flex flex-col justify-between gap-12 lg:gap-0">
 
             {/* LOCATIONS */}
-            <div className="grid grid-cols-3 gap-16 pb-24">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 lg:pb-24">
 
               {locations.map((loc) => (
                 <div key={loc.city}>
 
-                  <h4 className="text-white text-[22px] font-medium mb-5">
+                  <h4 className="text-white text-[18px] sm:text-[20px] lg:text-[22px] font-medium mb-3 sm:mb-5">
                     {loc.city}
                   </h4>
 
-                  <div className="space-y-1 text-white/55 text-[16px] leading-[1.5] font-light">
+                  <div className="space-y-1 text-white/55 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.5] font-light">
                     {loc.lines.map((line, i) => (
                       <p key={i}>{line}</p>
                     ))}
@@ -145,16 +147,16 @@ export default function Footer({ onToast }: FooterProps) {
             </div>
 
             {/* LINKS */}
-            <div className="grid grid-cols-3 gap-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
 
               {columns.map((col) => (
                 <div key={col.title}>
 
-                  <h4 className="text-white text-[24px] font-medium mb-8">
+                  <h4 className="text-white text-[20px] sm:text-[22px] lg:text-[24px] font-medium mb-5 sm:mb-8">
                     {col.title}
                   </h4>
 
-                  <div className="space-y-5">
+                  <div className="space-y-4 sm:space-y-5">
 
                     {col.items.map((item) => (
                       <button
@@ -172,7 +174,9 @@ export default function Footer({ onToast }: FooterProps) {
                           hover:text-[#14BFFF]
                           transition-all
                           duration-300
-                          text-[18px]
+                          text-[16px]
+                          sm:text-[17px]
+                          lg:text-[18px]
                         "
                       >
                         <span>{item.label}</span>
@@ -199,8 +203,8 @@ export default function Footer({ onToast }: FooterProps) {
         </div>
 
         {/* COPYRIGHT */}
-        <div className="mt-24 pt-10 border-t border-white/10">
-          <p className="text-white/55 text-[14px] leading-[1.6] font-light text-center max-w-5xl mx-auto">
+        <div className="mt-14 sm:mt-20 lg:mt-24 pt-8 sm:pt-10 border-t border-white/10">
+          <p className="text-white/55 text-[12px] sm:text-[13px] lg:text-[14px] leading-[1.6] font-light text-center max-w-5xl mx-auto">
             Copyright © 2022 by Linktia Infosystems Limited — [CB7 and N7 as Commercial Brand] — [Registered under the Companies Act 2006 in England and Wales | Number of Incorporation 13100992]
           </p>
         </div>

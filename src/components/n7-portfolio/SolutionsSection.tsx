@@ -20,8 +20,8 @@ const itemVariants: Variants = {
 
 export default function SolutionsSection({ solutions, onLearnMore, onRequestDemo }: SolutionsSectionProps) {
   return (
-    <section className="bg-[#000D12] pt-24 pb-32 relative">
-      <div className="max-w-[1200px] mx-auto px-8 grid md:grid-cols-12 gap-12">
+    <section className="bg-bg pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-28 lg:pb-32 relative">
+      <div className="max-w-300 mx-auto px-5 sm:px-8 grid md:grid-cols-12 gap-10 sm:gap-12">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -37,7 +37,7 @@ export default function SolutionsSection({ solutions, onLearnMore, onRequestDemo
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={onRequestDemo}
-            className="cta-gradient text-white font-medium px-6 py-3 rounded-md text-[11px] uppercase tracking-[0.2em] shadow-lg"
+            className="cta-gradient text-white font-medium px-6 py-3 rounded-md text-[11px] uppercase tracking-[0.2em] shadow-lg hover:shadow-[0_12px_30px_rgba(0,180,253,0.35)] transition-shadow"
           >
             Request Demo
           </motion.button>
@@ -74,7 +74,7 @@ export default function SolutionsSection({ solutions, onLearnMore, onRequestDemo
               </p>
               <button
                 onClick={() => onLearnMore(item.title)}
-                className="flex items-center gap-1.5 text-[10px] text-[#5BC2E7] group-hover:text-white uppercase tracking-[0.18em] font-medium transition-colors"
+                className="flex items-center gap-1.5 text-[10px] text-cyan group-hover:text-white uppercase tracking-[0.18em] font-medium transition-colors"
               >
                 <span>Learn More</span>
                 <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />

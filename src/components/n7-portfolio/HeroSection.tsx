@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { 
   ArrowRight, 
   Bell, 
@@ -27,6 +27,7 @@ const logoWavesMarathon = './companiesVectors/Group 47.png'
 type HeroSectionProps = {
   onRequestDemo: () => void
   onStartNow: () => void
+  onToast?: (message: string) => void
 }
 
 const fadeUp = {
@@ -50,7 +51,7 @@ const trustedLogos = [
   { name: 'WAVESMARATHON', src: logoWavesMarathon }
 ]
 
-export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionProps) {
+export default function HeroSection({ onRequestDemo, onStartNow, onToast }: HeroSectionProps) {
   // --- Simulated Interactive State ---
   const [balance, setBalance] = useState(42295.00)
   const [activeRange, setActiveRange] = useState('This Week')
@@ -82,7 +83,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
     if (!amt || amt <= 0 || !transferTarget) return
     
     if (amt > balance) {
-      alert("Insufficient funds.")
+      onToast?.('Insufficient funds.')
       return
     }
 
@@ -125,7 +126,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
   }
 
   return (
-    <section className="relative bg-[#000D12] pt-36 pb-32 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section className="relative bg-bg pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-28 lg:pb-32 overflow-hidden min-h-screen flex flex-col justify-center">
       {/* Dynamic Background Glowing Orbs */}
       <div 
   className="absolute top-1/2 left-4/5 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[550px] h-[550px] rounded-full filter blur-[120px] opacity-50 z-0"
@@ -135,7 +136,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
   }}
 />
 
-      <div className="max-w-[1280px] mx-auto px-10 grid lg:grid-cols-2 gap-72 items-center relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 grid lg:grid-cols-2 gap-16 lg:gap-24 xl:gap-40 items-center relative z-10 w-full">
         
         {/* Left Column: Typography & CTAs */}
         <motion.div
@@ -168,7 +169,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={onRequestDemo}
-              className="bg-gradient-to-r from-[#00B4FD] to-[#003ACE] hover:shadow-lg hover:shadow-cyan-500/10 text-white font-medium px-8 py-4 rounded-xl text-[11px] uppercase tracking-[0.2em] transition-all"
+              className="bg-gradient-to-r from-primary to-primary-dark hover:shadow-[0_12px_30px_rgba(0,180,253,0.35)] text-white font-medium px-8 py-4 rounded-xl text-[11px] uppercase tracking-[0.2em] transition-all"
             >
               Request Demo
             </motion.button>
@@ -186,7 +187,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
           <motion.div variants={fadeUp} className="pt-16 space-y-5">
             <p className="text-[13px] font-normal text-white/50 tracking-wider uppercase">Trusted By:</p>
             <div
-              className="flex flex-container items-center gap-3"
+              className="flex items-center gap-3"
             >
               {trustedLogos.map((logo, idx) => (
                 <motion.span
@@ -290,15 +291,15 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
                 </div>
                 <div className="grid grid-cols-3 gap-2">
                   <button onClick={() => setActiveModal('transfer')} className="flex flex-col items-center p-2 rounded-xl bg-slate-100/70 hover:bg-slate-200/80 transition-colors">
-                    <Send className="w-3.5 h-3.5 text-[#003ACE] rotate-45 mb-1" />
+                    <Send className="w-3.5 h-3.5 text-primary-dark rotate-45 mb-1" />
                     <span className="text-[8px] font-bold text-slate-600">Transfer</span>
                   </button>
                   <button onClick={() => setActiveModal('add')} className="flex flex-col items-center p-2 rounded-xl bg-slate-100/70 hover:bg-slate-200/80 transition-colors">
-                    <Plus className="w-3.5 h-3.5 text-[#003ACE] mb-1" />
+                    <Plus className="w-3.5 h-3.5 text-primary-dark mb-1" />
                     <span className="text-[8px] font-bold text-slate-600">Deposit</span>
                   </button>
                   <button onClick={() => setActiveModal('more')} className="flex flex-col items-center p-2 rounded-xl bg-slate-100/70 hover:bg-slate-200/80 transition-colors">
-                    <Grid className="w-3.5 h-3.5 text-[#003ACE] mb-1" />
+                    <Grid className="w-3.5 h-3.5 text-primary-dark mb-1" />
                     <span className="text-[8px] font-bold text-slate-600">More</span>
                   </button>
                 </div>
@@ -402,7 +403,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
               {activeModal === 'transfer' && (
                 <form onSubmit={handleTransferSubmit} className="space-y-4">
                   <div className="flex items-center gap-3 mb-2">
-                    <Send className="w-5 h-5 text-[#00B4FD] rotate-45" />
+                    <Send className="w-5 h-5 text-primary rotate-45" />
                     <div>
                       <h3 className="text-md font-bold text-white">Quick Fund Transfer</h3>
                       <p className="text-[11px] text-white/40">Instantly wire secure assets globally.</p>
@@ -416,7 +417,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
                       placeholder="e.g. Jin" 
                       value={transferTarget}
                       onChange={(e) => setTransferTarget(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-[#00B4FD] text-sm"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary text-sm"
                     />
                   </div>
                   <div>
@@ -427,10 +428,10 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
                       placeholder="e.g. 59" 
                       value={transferAmount}
                       onChange={(e) => setTransferAmount(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-[#00B4FD] text-sm"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary text-sm"
                     />
                   </div>
-                  <button type="submit" className="w-full py-3 rounded-xl bg-gradient-to-r from-[#00B4FD] to-[#003ACE] font-semibold text-xs tracking-wider uppercase">
+                  <button type="submit" className="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-primary-dark font-semibold text-xs tracking-wider uppercase">
                     Confirm & Send
                   </button>
                 </form>
@@ -453,7 +454,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
                       placeholder="e.g. 1000" 
                       value={depositAmount}
                       onChange={(e) => setDepositAmount(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-[#00B4FD] text-sm"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary text-sm"
                     />
                   </div>
                   <button type="submit" className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 font-semibold text-xs tracking-wider uppercase transition-colors">
@@ -464,7 +465,7 @@ export default function HeroSection({ onRequestDemo, onStartNow }: HeroSectionPr
 
               {activeModal === 'more' && (
                 <div className="space-y-4 text-center">
-                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto text-[#00B4FD]">
+                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto text-primary">
                     <Grid className="w-6 h-6" />
                   </div>
                   <div>

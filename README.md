@@ -159,6 +159,7 @@ n7-/
   - Items with no dedicated section (Contact, Careers, Company, etc.) point at `#about` (the footer itself); the toast still names the click so context isn't lost.
   - The `Our Socials` column targets `'social'`, which skips scrolling and fires an `Opening <label>` toast instead.
 - **Hover state** — arrow icon slides in from the left, text turns cyan.
+- **Responsive layout** — single-column stack on mobile, two-column at `sm`, full three-column + side-by-side `N7` block at `lg`. The giant `N7` scales `140px → 220px → 360px` across breakpoints; padding, gaps, and text sizes step up at `sm`/`lg` to match.
 - **Copyright line** centered under a hairline divider at the bottom.
 
 ### Toast & Demo modal

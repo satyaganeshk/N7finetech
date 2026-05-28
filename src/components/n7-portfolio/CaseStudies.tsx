@@ -28,16 +28,16 @@ function CaseCard({
   onReadMore: (title: string) => void
 }) {
   return (
-    <div className="bg-[#0B131A] border border-white/5 rounded-2xl overflow-hidden h-full grid md:grid-cols-2 gap-0">
-      <div className="bg-[#0A1A28] flex items-center justify-center p-8 min-h-[300px]">
+    <div className="group bg-[#0B131A] border border-white/5 rounded-2xl overflow-hidden h-full grid md:grid-cols-2 gap-0 hover:border-cyan/30 transition-colors duration-300">
+      <div className="bg-[#0A1A28] flex items-center justify-center p-8 min-h-55 sm:min-h-75 overflow-hidden">
         <img
           src="/Transistion.png"
           alt=""
-          className="w-full max-w-[320px] h-auto object-contain"
+          className="w-full max-w-[320px] h-auto object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
       <div className="p-8 md:p-10 flex flex-col">
-        <p className="text-[10px] uppercase tracking-[0.22em] text-[#5BC2E7] font-medium">
+        <p className="text-[10px] uppercase tracking-[0.22em] text-cyan font-medium">
           Getting Started
         </p>
         <h3 className="mt-5 text-2xl md:text-[32px] font-light text-white leading-[1.2]">
@@ -52,7 +52,7 @@ function CaseCard({
         <div className="mt-auto pt-8">
           <button
             onClick={() => onReadMore(study.title)}
-            className="w-full border border-white/15 hover:border-[#5BC2E7] text-white/70 hover:text-white text-[10px] uppercase tracking-[0.22em] font-medium px-6 py-3 rounded transition-colors"
+            className="w-full border border-white/15 hover:border-cyan text-white/70 hover:text-white text-[10px] uppercase tracking-[0.22em] font-medium px-6 py-3 rounded transition-colors"
           >
             Read More
           </button>
@@ -92,8 +92,8 @@ export default function CaseStudies({
   }
 
   return (
-    <section className="bg-[#000D12] py-24 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-8 space-y-12">
+    <section className="bg-bg py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 space-y-10 sm:space-y-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function CaseStudies({
           Our Case Studies
         </motion.h2>
 
-        <div className="relative max-w-[1040px] mx-auto h-[440px] md:h-[480px]">
+        <div className="relative max-w-260 mx-auto h-140 sm:h-120 md:h-120">
           {caseStudies.map((study, idx) => {
             const offset = wrappedOffset(idx)
             const isActive = offset === 0
@@ -133,14 +133,14 @@ export default function CaseStudies({
           })}
         </div>
 
-        <div className="grid grid-cols-3 items-center max-w-[1040px] mx-auto pt-2">
-          <div />
-          <div className="flex items-center justify-center gap-5">
+        <div className="flex flex-col md:grid md:grid-cols-3 items-center gap-6 md:gap-0 max-w-260 mx-auto pt-2">
+          <div className="hidden md:block" />
+          <div className="flex items-center justify-center gap-5 order-1 md:order-0">
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
               onClick={onPrev}
-              className="w-11 h-11 rounded-full border border-[#5BC2E7]/60 hover:border-[#5BC2E7] text-[#5BC2E7] flex items-center justify-center transition-colors"
+              className="w-11 h-11 rounded-full border border-cyan/60 hover:border-cyan text-cyan flex items-center justify-center transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
             </motion.button>
@@ -151,7 +151,7 @@ export default function CaseStudies({
                   onClick={() => onJumpTo(idx)}
                   aria-label={`Go to case study ${idx + 1}`}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
-                    idx === activeIndex ? 'w-10 bg-[#5BC2E7]' : 'w-1.5 bg-white/20 hover:bg-white/40'
+                    idx === activeIndex ? 'w-10 bg-cyan' : 'w-1.5 bg-white/20 hover:bg-white/40'
                   }`}
                 />
               ))}
@@ -160,7 +160,7 @@ export default function CaseStudies({
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
               onClick={onNext}
-              className="w-11 h-11 rounded-full border border-[#5BC2E7]/60 hover:border-[#5BC2E7] text-[#5BC2E7] flex items-center justify-center transition-colors"
+              className="w-11 h-11 rounded-full border border-cyan/60 hover:border-cyan text-cyan flex items-center justify-center transition-colors"
             >
               <ArrowRight className="w-4 h-4" />
             </motion.button>
@@ -168,12 +168,12 @@ export default function CaseStudies({
 
           <button
             onClick={handleViewAll}
-            className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] font-medium transition-colors"
+            className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] font-medium transition-colors md:justify-self-end order-2 md:order-0"
           >
-            <span className="text-[#5BC2E7] underline underline-offset-[6px] decoration-[#5BC2E7] group-hover:text-white group-hover:decoration-white transition-colors">
+            <span className="text-cyan underline underline-offset-[6px] decoration-cyan group-hover:text-white group-hover:decoration-white transition-colors">
               View All
             </span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#5BC2E7] group-hover:text-white group-hover:translate-x-1 transition-all" />
+            <ArrowRight className="w-3.5 h-3.5 text-cyan group-hover:text-white group-hover:translate-x-1 transition-all" />
           </button>
         </div>
       </div>
@@ -198,7 +198,7 @@ export default function CaseStudies({
             >
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#5BC2E7] font-medium">All Case Studies</p>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-cyan font-medium">All Case Studies</p>
                   <h3 className="mt-2 text-xl md:text-[26px] font-light text-white tracking-tight">
                     {caseStudies.length} stories from our clients
                   </h3>
@@ -231,7 +231,7 @@ export default function CaseStudies({
                       />
                     </div>
                     <div className="space-y-2 min-w-0">
-                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#5BC2E7] font-medium">
+                      <p className="text-[9px] uppercase tracking-[0.22em] text-cyan font-medium">
                         {study.category}
                       </p>
                       <h4 className="text-[15px] font-light text-white leading-snug">
@@ -244,7 +244,7 @@ export default function CaseStudies({
                         <span className="text-white/60 text-[12px] font-light">{study.client}</span>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-[#5BC2E7] group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+                    <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-cyan group-hover:translate-x-1 transition-all shrink-0 mt-1" />
                   </motion.button>
                 ))}
               </div>

@@ -54,7 +54,7 @@ export default function DemoBox({ open, onClose, onToast }: DemoBoxProps) {
 
         {/* Header */}
         <div className="mb-7">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#5BC2E7] font-medium mb-2">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-cyan font-medium mb-2">
             Request Demo
           </p>
           <h3 className="text-2xl font-light text-white tracking-tight mb-1.5">
@@ -67,7 +67,7 @@ export default function DemoBox({ open, onClose, onToast }: DemoBoxProps) {
 
         {submitted ? (
           <div className="py-12 flex flex-col items-center justify-center gap-3">
-            <div className="w-13 h-13 rounded-full bg-[#1E5CFF]/12 border border-[#5BC2E7]/30 flex items-center justify-center text-[#5BC2E7]">
+            <div className="w-13 h-13 rounded-full bg-[#1E5CFF]/12 border border-cyan/30 flex items-center justify-center text-cyan">
               <Check className="w-5 h-5 stroke-[2.5]" />
             </div>
             <p className="text-[12px] text-white/55 font-light">Submitting your request…</p>

@@ -45,7 +45,7 @@ function App() {
     <div className="min-h-screen bg-[#0E1116] text-white selection:bg-[#1E5CFF] selection:text-white overflow-x-hidden">
       <FixedNavbar onRequestDemo={handleDemoOpen} onToast={triggerToast} />
       <div id="home">
-        <HeroSection onRequestDemo={handleDemoOpen} onStartNow={handleStartNow} />
+        <HeroSection onRequestDemo={handleDemoOpen} onStartNow={handleStartNow} onToast={triggerToast} />
       </div>
       <div id="solutions">
         <SolutionsSection
@@ -55,7 +55,7 @@ function App() {
         />
       </div>
       <div id="core-banking">
-        <SystemSection onSimulate={handleSimulate} onLearnMore={() => handleLearnMore('Cloud Core Banking')} />
+        <SystemSection onSimulate={handleSimulate} onLearnMore={() => handleLearnMore('Cloud Core Banking')} onRequestDemo={handleDemoOpen} />
       </div>
       <CtaBanner onRequestDemo={handleDemoOpen} onContact={handleStartNow} background="CB7" />
       <div id="partners">
@@ -65,6 +65,8 @@ function App() {
         <LightShowcaseSection
           onFeatureAction={handleFeatureAction}
           onLearnMore={() => handleLearnMore('Digital banking out-of-the-box')}
+          onRequestDemo={handleDemoOpen}
+          onContact={handleStartNow}
         />
       </div>
       <CoreInsights onSeeAll={handleSeeAll} onReadArticle={handleReadArticle}  />

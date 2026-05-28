@@ -131,7 +131,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
                   {active && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute -bottom-0.5 left-0 right-0 h-px bg-[#5BC2E7]"
+                      className="absolute -bottom-0.5 left-0 right-0 h-px bg-cyan"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -154,7 +154,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
                             onClick={() => scrollToId(link.id, link.label)}
                             className={`w-full text-left px-3 py-2.5 rounded-lg text-[12px] tracking-[0.12em] uppercase transition-colors ${
                               linkActive
-                                ? 'bg-white/[0.06] text-[#5BC2E7]'
+                                ? 'bg-white/[0.06] text-cyan'
                                 : 'text-white/75 hover:bg-white/[0.04] hover:text-white'
                             }`}
                           >
@@ -179,7 +179,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
             {isDirectActive(directLink.id) && (
               <motion.span
                 layoutId="nav-underline"
-                className="absolute -bottom-0.5 left-0 right-0 h-px bg-[#5BC2E7]"
+                className="absolute -bottom-0.5 left-0 right-0 h-px bg-cyan"
                 transition={{ type: 'spring', stiffness: 380, damping: 30 }}
               />
             )}
@@ -223,7 +223,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
                       key={link.id}
                       onClick={() => scrollToId(link.id, link.label)}
                       className={`block w-full text-left px-2 py-2 rounded-lg text-[12px] tracking-[0.14em] uppercase transition-colors ${
-                        linkActive ? 'text-[#5BC2E7]' : 'text-white/80 hover:text-white'
+                        linkActive ? 'text-cyan' : 'text-white/80 hover:text-white'
                       }`}
                     >
                       {link.label}
@@ -235,7 +235,7 @@ export default function FixedNavbar({ onRequestDemo, onToast }: FixedNavbarProps
             <button
               onClick={() => scrollToId(directLink.id, directLink.label)}
               className={`block w-full text-left px-2 py-2 rounded-lg text-[12px] tracking-[0.18em] uppercase transition-colors ${
-                isDirectActive(directLink.id) ? 'text-[#5BC2E7]' : 'text-white/80 hover:text-white'
+                isDirectActive(directLink.id) ? 'text-cyan' : 'text-white/80 hover:text-white'
               }`}
             >
               {directLink.label}
