@@ -25,7 +25,7 @@ const locations = [
     ]
   },
   {
-    city: 'London',
+    city: 'Pune',
     lines: [
       'Linktia Infosystems Ltd –',
       'CB7, Nirmal, Anand Nagar,',
@@ -52,12 +52,12 @@ const columns: { title: string; items: FooterItem[] }[] = [
     items: [
       { label: 'About Us', target: 'about' },
       { label: 'Solutions', target: 'solutions' },
-      { label: 'Contact', target: 'about' },
-      { label: 'Company', target: 'about' },
-      { label: 'Careers', target: 'about' },
+      { label: 'Contact', target: 'coming-soon' },
+      { label: 'Company', target: 'coming-soon' },
+      { label: 'Careers', target: 'coming-soon' },
       { label: 'Insights', target: 'insights' },
-      { label: 'Core Team', target: 'about' },
-      { label: 'Brand Center', target: 'home' }
+      { label: 'Core Team', target: 'coming-soon' },
+      { label: 'Brand Center', target: 'coming-soon' }
     ]
   },
   {
@@ -75,6 +75,10 @@ export default function Footer({ onToast }: FooterProps) {
       onToast?.(`Opening ${item.label}`)
       return
     }
+    if (item.target === 'coming-soon') {
+      onToast?.(`${item.label} — coming soon`)
+      return
+    }
     const el = document.getElementById(item.target)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -88,10 +92,10 @@ export default function Footer({ onToast }: FooterProps) {
       <div className="mx-auto px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-20">
 
         {/* TOP */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-20">
 
           {/* LEFT BIG N7 */}
-          <div className="lg:col-span-4">
+          <div className="md:col-span-12 lg:col-span-4">
 
             <div className="relative inline-block">
 
@@ -105,8 +109,9 @@ export default function Footer({ onToast }: FooterProps) {
                 className="
                   relative
                   z-10
-                  text-[140px]
-                  sm:text-[220px]
+                  text-[120px]
+                  sm:text-[180px]
+                  md:text-[240px]
                   lg:text-[360px]
                   leading-[0.8]
                   font-[600]
@@ -125,10 +130,10 @@ export default function Footer({ onToast }: FooterProps) {
           </div>
 
           {/* RIGHT CONTENT */}
-          <div className="lg:col-span-8 flex flex-col justify-between gap-12 lg:gap-0">
+          <div className="md:col-span-12 lg:col-span-8 flex flex-col justify-between gap-12 lg:gap-0">
 
             {/* LOCATIONS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 lg:pb-24">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16 lg:pb-24">
 
               {locations.map((loc) => (
                 <div key={loc.city}>
@@ -147,7 +152,7 @@ export default function Footer({ onToast }: FooterProps) {
             </div>
 
             {/* LINKS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
 
               {columns.map((col) => (
                 <div key={col.title}>
@@ -162,6 +167,7 @@ export default function Footer({ onToast }: FooterProps) {
                       <button
                         key={item.label}
                         onClick={() => handleClick(item)}
+                        aria-label={item.label}
                         className="
                           group
                           flex
