@@ -272,3 +272,8 @@ Use them anywhere as `#solutions`, `#case-studies`, etc.
 2. Import and render it in `App.tsx`, wrapped in `<div id="<your-id>">…</div>`.
 3. Add the new id to the `scroll-margin-top` rule in [index.css](src/index.css) so the fixed navbar doesn't cover it after a jump.
 4. (Optional) Add a link to it in [FixedNavbar.tsx](src/components/layout/FixedNavbar.tsx)'s `navGroups` array — the IntersectionObserver will pick it up automatically as long as the id is in `allTrackedIds`.
+
+## Some Screenshots of the website in different screen sizes
+<img width="1891" height="840" alt="image" src="https://github.com/user-attachments/assets/0618ca91-b7d5-484b-85f3-7c47cdeddd5a" />
+<img width="279" height="620" alt="image" src="https://github.com/user-attachments/assets/a68455cd-a0dc-4411-b5a6-db436c43a851" />
+
