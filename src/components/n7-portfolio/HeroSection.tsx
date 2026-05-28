@@ -1,28 +1,14 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { 
-  ArrowRight, 
-  Bell, 
-  Send, 
-  Plus, 
-  Grid, 
-  ArrowUpRight, 
-  X,
-  Info
-} from 'lucide-react'
+import { ArrowRight, Bell, Send, Plus, Grid, ArrowUpRight, X } from 'lucide-react'
+import { trustedLogos } from './hero/trustedLogos'
+import { TransferModal } from './hero/TransferModal'
+import { DepositModal } from './hero/DepositModal'
+import { MoreModal } from './hero/MoreModal'
 
-// --- Asset Path Configurations ---
-// (Define these as strings so they compile immediately, while referencing your local files)
 const heroImg = './hero.png'
 const heroside1Img = './heroside1.png'
 const heroside2Img = './heroside2.png'
-
-const logoShells = './companiesVectors/Vector.png'
-const logoSmartFinder = './companiesVectors/Vector (1).png'
-const logoZoomerr = './companiesVectors/Vector (2).png'
-const logoArtVenue = './companiesVectors/Group 45.png'
-const logoKontrastr = './companiesVectors/Group 46.png'
-const logoWavesMarathon = './companiesVectors/Group 47.png'
 
 type HeroSectionProps = {
   onRequestDemo: () => void
@@ -41,15 +27,6 @@ const container = {
     transition: { staggerChildren: 0.08, delayChildren: 0.1 }
   }
 }
-
-const trustedLogos = [
-  { name: 'SHELLS', src: logoShells },
-  { name: 'SmartFinder', src: logoSmartFinder },
-  { name: 'Zoomerr', src: logoZoomerr },
-  { name: 'ArtVenue', src: logoArtVenue },
-  { name: 'kontrastr', src: logoKontrastr },
-  { name: 'WAVESMARATHON', src: logoWavesMarathon }
-]
 
 export default function HeroSection({ onRequestDemo, onStartNow, onToast }: HeroSectionProps) {
   // --- Simulated Interactive State ---
@@ -402,94 +379,24 @@ export default function HeroSection({ onRequestDemo, onStartNow, onToast }: Hero
               </button>
 
               {activeModal === 'transfer' && (
-                <form onSubmit={handleTransferSubmit} className="space-y-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Send className="w-5 h-5 text-primary rotate-45" />
-                    <div>
-                      <h3 className="text-md font-bold text-white">Quick Fund Transfer</h3>
-                      <p className="text-[11px] text-white/40">Instantly wire secure assets globally.</p>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-bold text-white/40 uppercase tracking-wider mb-1.5">Recipient Name</label>
-                    <input 
-                      type="text" 
-                      required
-                      placeholder="e.g. Jin" 
-                      value={transferTarget}
-                      onChange={(e) => setTransferTarget(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-bold text-white/40 uppercase tracking-wider mb-1.5">Amount (USD)</label>
-                    <input 
-                      type="number" 
-                      required
-                      placeholder="e.g. 59" 
-                      value={transferAmount}
-                      onChange={(e) => setTransferAmount(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary text-sm"
-                    />
-                  </div>
-                  <button type="submit" className="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-primary-dark font-semibold text-xs tracking-wider uppercase">
-                    Confirm & Send
-                  </button>
-                </form>
+                <TransferModal
+                  target={transferTarget}
+                  amount={transferAmount}
+                  onTargetChange={setTransferTarget}
+                  onAmountChange={setTransferAmount}
+                  onSubmit={handleTransferSubmit}
+                />
               )}
 
               {activeModal === 'add' && (
-                <form onSubmit={handleDepositSubmit} className="space-y-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Plus className="w-5 h-5 text-emerald-400" />
-                    <div>
-                      <h3 className="text-md font-bold text-white">Direct Deposit</h3>
-                      <p className="text-[11px] text-white/40">Fund your simulation account instantly.</p>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-bold text-white/40 uppercase tracking-wider mb-1.5">Amount to Add (USD)</label>
-                    <input 
-                      type="number" 
-                      required
-                      placeholder="e.g. 1000" 
-                      value={depositAmount}
-                      onChange={(e) => setDepositAmount(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-primary text-sm"
-                    />
-                  </div>
-                  <button type="submit" className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 font-semibold text-xs tracking-wider uppercase transition-colors">
-                    Deposit Instantly
-                  </button>
-                </form>
+                <DepositModal
+                  amount={depositAmount}
+                  onAmountChange={setDepositAmount}
+                  onSubmit={handleDepositSubmit}
+                />
               )}
 
-              {activeModal === 'more' && (
-                <div className="space-y-4 text-center">
-                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto text-primary">
-                    <Grid className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-md font-bold text-white">Simulation Controller</h3>
-                    <p className="text-xs text-white/40 mt-1 max-w-xs mx-auto">
-                      Click inside either card on the right column to test live wallet values, simulated transactions, and filters.
-                    </p>
-                  </div>
-                  <div className="p-3 bg-white/5 rounded-2xl text-left border border-white/10">
-                    <div className="flex items-start gap-2.5">
-                      <Info className="w-4 h-4 text-white/40 shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-[11px] text-white/80 leading-normal">
-                          For local deployment, replace the string configurations in your source code with your local directory layout.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <button onClick={() => setActiveModal(null)} className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors text-xs font-bold uppercase">
-                    Close
-                  </button>
-                </div>
-              )}
+              {activeModal === 'more' && <MoreModal onClose={() => setActiveModal(null)} />}
             </motion.div>
           </motion.div>
         )}
