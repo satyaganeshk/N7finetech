@@ -42,7 +42,7 @@ function App() {
     setActiveCaseStudy((prev) => (prev === caseStudies.length - 1 ? 0 : prev + 1))
 
   return (
-    <div className="min-h-screen bg-[#0E1116] text-white selection:bg-[#1E5CFF] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#0E1116] text-white selection:bg-[#1E5CFF] selection:text-white">
       <FixedNavbar onRequestDemo={handleDemoOpen} onToast={triggerToast} />
       <main>
         <section id="home" aria-label="Hero">
