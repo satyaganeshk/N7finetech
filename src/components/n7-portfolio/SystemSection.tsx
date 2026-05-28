@@ -205,10 +205,10 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
       <div className="relative max-w-[1240px] mx-auto px-6 md:px-12 space-y-28 md:space-y-40 z-10">
         
         {/* --- ROW 1 (Matches Frame 12.png): A complete cloud-based core banking --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 lg:gap-16 items-center">
+
           {/* Left Text Column */}
-          <div className="lg:col-span-6 space-y-6 text-left">
+          <div className="md:col-span-6 space-y-6 text-left">
             <div className="space-y-5">
               <h2 className="text-4xl md:text-[46px] font-light leading-[1.14] tracking-tight text-white">
                 A complete cloud-based <br />
@@ -242,7 +242,7 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
           </div>
 
           {/* Right Laptop Screen Column (glowing baseline on the right side) */}
-          <div className="lg:col-span-6 flex justify-center">
+          <div className="md:col-span-6 flex justify-center">
             <LaptopMockup 
               src="/Dashboards/Frame 90.png"
               alt="Core banking Dashboard screen" 
@@ -253,10 +253,10 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
         </div>
 
         {/* --- ROW 2 (Matches Frame 80.png): Run a more efficient, flexible corebanking system --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 lg:gap-16 items-center">
+
           {/* Left Column: Laptop Mockup (glowing baseline on the left side) */}
-          <div className="lg:col-span-6 lg:order-1 flex justify-center">
+          <div className="md:col-span-6 md:order-1 flex justify-center">
             <LaptopMockup
               src="/Dashboards/Frame 98.png"
               alt="KYC Dashboard screen"
@@ -266,7 +266,7 @@ export function SystemSection({ onSimulate, onLearnMore, onRequestDemo }: System
           </div>
 
           {/* Right Column: Detailed Lists */}
-          <div className="lg:col-span-6 lg:order-2 space-y-6 text-left">
+          <div className="md:col-span-6 md:order-2 space-y-6 text-left">
             <div className="space-y-4">
               <h2 className="text-3xl md:text-[34px] font-light text-white leading-[1.2] tracking-tight">
                 Run a more efficient, flexible,and digitally connected corebanking system

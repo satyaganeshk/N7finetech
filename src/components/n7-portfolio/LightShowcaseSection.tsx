@@ -249,10 +249,10 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
       <div className="relative max-w-[1240px] mx-auto px-6 md:px-12 space-y-24 md:space-y-36 z-10">
         
         {/* --- ROW 1: Triple Column Layout (Hero Title + Phone 1 + Feature Content) --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-center">
+
           {/* Column A: Left Hero Title / Prompt */}
-          <div className="lg:col-span-4 space-y-6 text-left">
+          <div className="md:col-span-12 lg:col-span-4 space-y-6 text-left">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-[45px] font-light leading-[1.12] tracking-tight text-[#0F1E36]">
                 Digital banking <br />
@@ -283,12 +283,12 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
           </div>
 
           {/* Column B: Center Phone Mockup (iPhone 13 Pro.png) */}
-          <div className="lg:col-span-4 flex justify-center py-6">
+          <div className="md:col-span-6 lg:col-span-4 flex justify-center py-6">
             <PhoneMockup src={phoneImages[0].src} alt={phoneImages[0].alt} index={0} />
           </div>
 
           {/* Column C: Right Compliance Content block */}
-          <div className="lg:col-span-4 space-y-6 text-left">
+          <div className="md:col-span-6 lg:col-span-4 space-y-6 text-left">
             <div className="space-y-4">
               <h3 className="text-2xl md:text-2xl font-light text-[#0F1E36] leading-snug">
                 {blocks[0].heading}
@@ -318,10 +318,10 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
         </div>
 
         {/* --- ROW 2: Left Content + Right Phone Mockup 2 (iPhone 13 Pro-1.png) --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 lg:gap-16 items-center">
+
           {/* Left Column: Text Content */}
-          <div className="lg:col-span-6 lg:order-1 space-y-6 text-left">
+          <div className="md:col-span-6 md:order-1 space-y-6 text-left">
             <div className="space-y-4 max-w-lg">
               <h3 className="text-2xl md:text-[28px] font-light text-[#0F1E36] leading-snug">
                 {blocks[1].heading}
@@ -349,22 +349,22 @@ export function LightShowcaseSection({ onFeatureAction, onLearnMore, onRequestDe
           </div>
 
           {/* Right Column: Center Phone Mockup */}
-          <div className="lg:col-span-6 lg:order-2 flex justify-center">
+          <div className="md:col-span-6 md:order-2 flex justify-center">
             <PhoneMockup src={phoneImages[1].src} alt={phoneImages[1].alt} index={1} />
           </div>
 
         </div>
 
         {/* --- ROW 3: Left Phone Mockup 3 (iPhone 13 Pro-2.png) + Right Content --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 lg:gap-16 items-center">
+
           {/* Left Column: Center Phone Mockup */}
-          <div className="lg:col-span-6 flex justify-center">
+          <div className="md:col-span-6 flex justify-center">
             <PhoneMockup src={phoneImages[2].src} alt={phoneImages[2].alt} index={2} />
           </div>
 
           {/* Right Column: Text Content */}
-          <div className="lg:col-span-6 space-y-6 text-left">
+          <div className="md:col-span-6 space-y-6 text-left">
             <div className="space-y-4 max-w-lg">
               <h3 className="text-2xl md:text-[28px] font-light text-[#0F1E36] leading-snug">
                 {blocks[2].heading}
